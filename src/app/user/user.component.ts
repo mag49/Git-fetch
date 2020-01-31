@@ -11,27 +11,27 @@ export class UserComponent implements OnInit {
   repos:any;
   username:string;
 
-  constructor(private userService: UserService) { 
-    this.userService.fetchUserData().subscribe(user => {
+  constructor(private UserService: UserService) { 
+    this.UserService.getUserData().subscribe(user => {
       console.log(user);
       this.user=user;
     }); 
 
-    this.userService.fetchUserData().subscribe(repos => {
+    this.UserService.getUserData().subscribe(repos => {
       console.log(repos);
       this.repos=repos;
     }) 
 }
 
   findUser(){
-    this.userService.updateUser(this.username);
+    this.UserService.updateUser(this.username);
 
-    this.userService.fetchUserData().subscribe(user => {
+    this.UserService.getUserData().subscribe(user => {
       console.log(user);
       this.user=user;
     }); 
 
-    this.userService.fetchUserRepos().subscribe(repos => {
+    this.UserService.getUserRepos().subscribe(repos => {
       console.log(repos);
       this.repos=repos;
     }) 

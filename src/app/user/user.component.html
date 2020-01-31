@@ -17,7 +17,7 @@
     <div class="col-sm-5">
         <ul class="list-group">
                 <li class="list-group-item" *ngIf="user.bio">{{user.bio}}</li>
-            <li class="list-group-item" *ngIf="user.email"><a href="emailto:{{profile.email}}">{{user.email}}</a></li>
+            <li class="list-group-item" *ngIf="user.email"><a href="emailto:{{user.email}}">{{user.email}}</a></li>
             <li class="list-group-item" *ngIf="user.telephone">{{user.telephone}}</li>
         </ul>
     </div>
