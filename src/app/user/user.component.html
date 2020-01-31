@@ -1,1 +1,60 @@
-<p>user works!</p>
+<div class="container">
+    <form action="" class="search-form">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search git users with user name" 
+            [(ngModel)]="username" name="username" (keyup)="finduser()">
+        </div>
+    </form>
+    <div *ngIf="user">
+    <div class="panel-heading">
+    {{user.name}} <small>({{user.login}})</small>
+    </div>
+    <div class="panel body">
+    <div class="row">
+    <div class="col-sm-3">
+    <img src="{{user.avatar_url}}" class="img-circle img-responsive" alt="user Image">
+    </div>
+    <div class="col-sm-5">
+        <ul class="list-group">
+                <li class="list-group-item" *ngIf="user.bio">{{user.bio}}</li>
+            <li class="list-group-item" *ngIf="user.email"><a href="emailto:{{profile.email}}">{{user.email}}</a></li>
+            <li class="list-group-item" *ngIf="user.telephone">{{user.telephone}}</li>
+        </ul>
+    </div>
+        <div class="col-sm-4">
+            <div>
+                <p>
+                    <span class="badge badge-primary">
+                        {{user.followers}} Followers</span><br>
+                    <span class="badge badge-primary">
+                        Following{{user.followers}} </span><br>
+                    <span class="badge badge-success">
+                        {{user.public_gists}} Public gists</span>
+                    <span class="badge badge-info">
+                        {{user.public_repos}} Public public_repos</span>
+                </p>
+                <p><a href="{{user.html_url}}" target="_blank" class="btn btn-success btn-sm">View user on github</a></p>
+              
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="panel panel-default">
+                   
+            <div class="panel-heading">
+                <h3 class="card-tittle">Repositories</h3>
+            </div>
+            <div class="card" *ngFor='let repo of repos'>
+                <div class="card-body">
+            <p>
+                {{repo.name}} <a href="{{repo.html_url}}" class="btn btn-success">View this project on github</a>
+            </p>
+            <p>{{repo.description}}</p>
+        </div>
+        </div>
+    
+    </div>
+    </div>
+    </div>
+    </div>
