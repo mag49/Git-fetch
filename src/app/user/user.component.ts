@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -7,37 +8,50 @@ import {UserService} from '../services/user.service';
 })
 export class UserComponent implements OnInit {
 
-  user:any;
+  public user:any;
   repos:any;
   username:string;
+  uname = "Mag49";
 
-  constructor(private UserService: UserService) { 
-    this.UserService.getUserData().subscribe(user => {
+  constructor(private userService: UserService) { 
+    this.userService.getUserData().subscribe(user => {
       console.log(user);
       this.user=user;
     }); 
 
-    this.UserService.getUserData().subscribe(repos => {
+    this.userService.getUserData().subscribe(repos => {
       console.log(repos);
       this.repos=repos;
     }) 
 }
 
   findUser(){
-    this.UserService.updateUser(this.username);
+    this.userService.updateUser(this.username);
 
-    this.UserService.getUserData().subscribe(user => {
+    this.userService.getUserData().subscribe(user => {
       console.log(user);
       this.user=user;
     }); 
 
-    this.UserService.getUserRepos().subscribe(repos => {
+    this.userService.getUserRepos().subscribe(repos => {
       console.log(repos);
       this.repos=repos;
     }) 
   }
   
   ngOnInit() {
+    this.userService.updateUser(this.uname);
+
+    this.userService.getUserData().subscribe(user => {
+      console.log(user);
+      this.user=user;
+    }); 
+
+    this.userService.getUserRepos().subscribe(repos => {
+      console.log(repos);
+      this.repos=repos;
+    }) 
+
   }
 
 }

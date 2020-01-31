@@ -3,9 +3,11 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class UserService {
+
   public username:string;
-  public clientid="af59a886926a3c41b772";
-  public clientsecret="a345424c81e1eee3ffc3b2509fc644a0736f5e8c";
+  public clientid="4be7d8c470e0705ea05e";
+  public clientsecret="5159990471a4111c3a2a6400e86e7f18533eb46f";
+
   constructor(private http:HttpClient) { 
     console.log("service is now ready!");
     this.username = 'mag49';
