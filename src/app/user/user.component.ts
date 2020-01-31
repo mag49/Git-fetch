@@ -7,31 +7,31 @@ import {UserService} from '../services/user.service';
 })
 export class UserComponent implements OnInit {
 
-  profile:any;
+  user:any;
   repos:any;
   username:string;
 
-  constructor(private profileService: UserService) { 
-    this.profileService.fetchUserData().subscribe(profile => {
-      console.log(profile);
-      this.profile=profile;
+  constructor(private userService: UserService) { 
+    this.userService.fetchUserData().subscribe(user => {
+      console.log(user);
+      this.user=user;
     }); 
 
-    this.profileService.fetchUserData().subscribe(repos => {
+    this.userService.fetchUserData().subscribe(repos => {
       console.log(repos);
       this.repos=repos;
     }) 
 }
 
   findUser(){
-    this.profileService.updateUser(this.username);
+    this.userService.updateUser(this.username);
 
-    this.profileService.fetchUserData().subscribe(user => {
-      console.log(profile);
-      this.profile=profile;
+    this.userService.fetchUserData().subscribe(user => {
+      console.log(user);
+      this.user=user;
     }); 
 
-    this.profileService.fetchUserRepos().subscribe(repos => {
+    this.userService.fetchUserRepos().subscribe(repos => {
       console.log(repos);
       this.repos=repos;
     }) 
