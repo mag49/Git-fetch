@@ -20,7 +20,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Technologies Used
 1. Angular 8
-2.Bootstrap
+ 2.Bootstrap
+ 3. HTML
 
 ## Code scaffolding
 
