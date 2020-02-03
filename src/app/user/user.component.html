@@ -40,15 +40,15 @@
     </div>
     </div>
     <div class="container">
-    <div class="panel panel-default">
-                   
-            <div class="panel-heading">
+    <div class="row">
+                               
+<!-- <div class="col-md-5 mt-5 text-center"> -->
                 <h3 class="card-tittle">Repositories</h3>
-            </div>
+            
             <div class="card" *ngFor='let repo of repos'>
                 <div class="card-body">
             <p>
-                {{repo.name}} <a href='{{repo.html_url}}' class="btn btn-success">Check this project on github</a>
+                {{repo.name}} <a href='{{repo.html_url}}' >Check this project on github</a>
             </p>
             <p>{{repo.description}}</p>
         </div>
